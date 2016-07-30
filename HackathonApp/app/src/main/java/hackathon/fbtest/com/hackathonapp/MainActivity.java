@@ -1,10 +1,13 @@
 package hackathon.fbtest.com.hackathonapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import hackathon.fbtest.com.hackathonapp.adapters.MainPagerAdapter;
 
@@ -25,5 +28,17 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(mainPagerAdapter);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tablayout);
         tabLayout.setupWithViewPager(viewPager);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_insert_article);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToArticleInsertActivity();
+            }
+        });
+    }
+
+    private void goToArticleInsertActivity() {
+        Intent intent = new Intent(this, ArticleInsertActivity.class);
+        startActivity(intent);
     }
 }
