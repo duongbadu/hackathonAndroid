@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk;
 
 import hackathon.fbtest.com.hackathonapp.adapters.MainPagerAdapter;
@@ -20,10 +21,12 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String EXTRA_REGION_NAME = "extra_region_name";
     public static final String EXTRA_REGION_ID = "extra_region_id";
+    private CallbackManager callbackManager;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        callbackManager = CallbackManager.Factory.create();
         setContentView(R.layout.activity_main);
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         MainPagerAdapter mainPagerAdapter = new MainPagerAdapter(getSupportFragmentManager());
@@ -43,5 +46,16 @@ public class MainActivity extends AppCompatActivity {
     private void goToArticleInsertActivity() {
         Intent intent = new Intent(this, ArticleInsertActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(callbackManager != null)
+            callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+
+    public CallbackManager getCallbackManager() {
+        return callbackManager;
     }
 }

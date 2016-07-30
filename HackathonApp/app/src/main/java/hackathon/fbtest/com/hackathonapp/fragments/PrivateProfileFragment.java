@@ -15,6 +15,7 @@ import com.facebook.FacebookException;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
+import hackathon.fbtest.com.hackathonapp.MainActivity;
 import hackathon.fbtest.com.hackathonapp.R;
 
 /**
@@ -33,7 +34,7 @@ public class PrivateProfileFragment extends MainFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        callbackManager = CallbackManager.Factory.create();
+        callbackManager = ((MainActivity)getActivity()).getCallbackManager();
 
         View rootView = inflater.inflate(R.layout.private_profile_fragment, container, false);
 
@@ -52,7 +53,7 @@ public class PrivateProfileFragment extends MainFragment {
             public void onSuccess(LoginResult loginResult) {
                 // App code
                 AccessToken token = loginResult.getAccessToken();
-                Log.d(TAG, "fb token: " + token.toString());
+                Log.d(TAG, "fb token: " + token.getToken());
             }
 
             @Override
@@ -64,6 +65,7 @@ public class PrivateProfileFragment extends MainFragment {
             public void onError(FacebookException exception) {
                 Log.e(TAG, "error", exception);
             }
+
         });
 
         return rootView;
