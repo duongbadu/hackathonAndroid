@@ -34,6 +34,7 @@ public class RegionSelectorActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         rvRegion.setLayoutManager(linearLayoutManager);
         rvRegion.setAdapter(regionAdapter);
+
     }
 
     private void goToMainScreen(Region region){

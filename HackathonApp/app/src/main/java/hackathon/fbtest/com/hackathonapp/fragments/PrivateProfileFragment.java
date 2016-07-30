@@ -1,5 +1,6 @@
 package hackathon.fbtest.com.hackathonapp.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -21,6 +22,9 @@ import hackathon.fbtest.com.hackathonapp.R;
  */
 public class PrivateProfileFragment extends MainFragment {
 
+    private static final String TAG = "profile fragment";
+    private CallbackManager callbackManager;
+
     public static PrivateProfileFragment newInstance(){
         return new PrivateProfileFragment();
     }
@@ -29,7 +33,7 @@ public class PrivateProfileFragment extends MainFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        CallbackManager callbackManager = CallbackManager.Factory.create();
+        callbackManager = CallbackManager.Factory.create();
 
         View rootView = inflater.inflate(R.layout.private_profile_fragment, container, false);
 
@@ -48,21 +52,28 @@ public class PrivateProfileFragment extends MainFragment {
             public void onSuccess(LoginResult loginResult) {
                 // App code
                 AccessToken token = loginResult.getAccessToken();
-                Log.d("duPro", "fb token: " + token.toString());
+                Log.d(TAG, "fb token: " + token.toString());
             }
 
             @Override
             public void onCancel() {
-                // App code
+                Log.d(TAG, "Cancel");
             }
 
             @Override
             public void onError(FacebookException exception) {
-                // App code
+                Log.e(TAG, "error", exception);
             }
         });
 
         return rootView;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(callbackManager != null)
+            callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
 }

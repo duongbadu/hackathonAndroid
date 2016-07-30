@@ -9,6 +9,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.facebook.FacebookSdk;
+
 import hackathon.fbtest.com.hackathonapp.adapters.MainPagerAdapter;
 
 /**
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 goToArticleInsertActivity();
             }
         });
+
     }
 
     private void goToArticleInsertActivity() {
