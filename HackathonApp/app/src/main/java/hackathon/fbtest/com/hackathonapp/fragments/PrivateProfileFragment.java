@@ -65,9 +65,4 @@ public class PrivateProfileFragment extends MainFragment {
         return rootView;
     }
 
-    public void addFbLoginBtn()
-    {
-
-    }
-
 }

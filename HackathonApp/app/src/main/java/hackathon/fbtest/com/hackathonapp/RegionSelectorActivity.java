@@ -1,12 +1,10 @@
 package hackathon.fbtest.com.hackathonapp;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-
-import com.facebook.FacebookSdk;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,8 +34,6 @@ public class RegionSelectorActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         rvRegion.setLayoutManager(linearLayoutManager);
         rvRegion.setAdapter(regionAdapter);
-
-        FacebookSdk.sdkInitialize(getApplicationContext());
     }
 
     private void goToMainScreen(Region region){
