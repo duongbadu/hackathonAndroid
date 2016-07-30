@@ -4,11 +4,11 @@ package hackathon.fbtest.com.hackathonapp.models;
  * Created by mr.icetea on 7/30/16.
  */
 public class ArticleItem {
-    public String teacherName;
-    public String degree;
-    public String price;
-    public String subject;
-    public String avatarUrl;
+    private String teacherName;
+    private String degree;
+    private String price;
+    private String subject;
+    private String avatarUrl;
 
     public ArticleItem(String teacherName, String degree, String price, String subject) {
         this.teacherName = teacherName;

@@ -17,6 +17,9 @@
 
         <activity android:name=".MainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"/>
+
+        <activity android:name=".ArticleDetailActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"/>
     </application>
 
 </manifest>

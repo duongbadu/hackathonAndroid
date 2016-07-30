@@ -2,6 +2,20 @@
     <string name="app_name">HackathonApp</string>
     <string name="region">Region</string>
     <string name="filter">Lọc</string>
-    <string name="teacher_name"><b>Tên Gv:</b> %s</string>
-    <string name="teacher_degree"><b>Học vị:</b> %s</string>
+    <string name="teacher_name"><![CDATA[<b>Tên Gv:</b> %s]]></string>
+    <string name="teacher_degree"><![CDATA[<b>Học vị:</b> %s]]></string>
+    <string name="teacher_sex"><![CDATA[<b>Giới tính:</b> %s]]></string>
+    <string name="teacher_experience"><![CDATA[<b>Kinh nghiệm:</b> %s năm]]></string>
+    <string name="article_name"><![CDATA[<b>Lớp:</b> %s năm]]></string>
+    <string name="article_price"><![CDATA[<b>Giá:</b> %s năm]]></string>
+    <string name="article_time"><![CDATA[<b>Thời gian:</b> %s năm]]></string>
+    <string name="article_region"><![CDATA[<b>Địa điểm:</b> %s năm]]></string>
+    <string name="article_number_people"><![CDATA[<b>Số thành viên:</b> %s năm]]></string>
+    <string name="article_description"><![CDATA[<b>Mô tả:</b> %s năm]]></string>
+    <string name="phone">Gọi điện</string>
+    <string name="sms">Nhắn tin</string>
+    <string name="teacher_info_label">Thông tin giảng viên</string>
+    <string name="article_info_label">Thông tin lớp học</string>
+    <string name="contact_teacher_label">Liên hệ giảng viên</string>
+    <string name="article_info">Thông tin lớp học</string>
 </resources>

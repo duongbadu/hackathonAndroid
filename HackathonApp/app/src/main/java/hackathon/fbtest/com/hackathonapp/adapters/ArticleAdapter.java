@@ -2,6 +2,7 @@ package hackathon.fbtest.com.hackathonapp.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,10 +25,12 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleI
     private List<ArticleItem> articles;
     private LayoutInflater inflater;
     private OnArticleItemSelectedListener listener;
+    private Context context;
 
     public ArticleAdapter(Context context, List<ArticleItem> articles) {
         this.articles = articles;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        this.context = context;
     }
 
     @Override
@@ -49,20 +52,32 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleI
                 if(listener != null) listener.onArticleItemSelected(article);
             }
         });
-//        holder.tvName.setText(article.getName());
+        holder.tvArticleName.setText(article.getSubject());
+        holder.tvTeacherName.setText(Html.fromHtml(String.format(context.getResources().getString(R.string.teacher_name),
+                article.getTeacherName())));
+        holder.tvTeacherDegree.setText(Html.fromHtml(String.format(context.getResources().getString(R.string.teacher_degree),
+                article.getDegree())));
+        holder.tvPrice.setText(article.getPrice());
     }
 
     public class ArticleItemViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tvName;
+        TextView tvArticleName;
+        TextView tvTeacherName;
+        TextView tvTeacherDegree;
+        TextView tvPrice;
 
         public ArticleItemViewHolder(View itemView) {
             super(itemView);
-            tvName = (TextView) itemView.findViewById(R.id.tv_name);
+            tvArticleName = (TextView) itemView.findViewById(R.id.tv_article_name);
+            tvTeacherName = (TextView) itemView.findViewById(R.id.tv_name);
+            tvTeacherDegree = (TextView) itemView.findViewById(R.id.tv_degree);
+            tvPrice = (TextView) itemView.findViewById(R.id.tv_price);
         }
     }
 
     public void setListener(OnArticleItemSelectedListener listener) {
         this.listener = listener;
     }
+
 }
