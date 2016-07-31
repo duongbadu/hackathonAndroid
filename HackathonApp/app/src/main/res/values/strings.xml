@@ -27,4 +27,8 @@
     <string name="price_label">Giá</string>
     <string name="description_label">Mô tả thêm</string>
     <string name="facebook_app_id">1654112671493191</string>
+    <string name="loading">Đang tải</string>
+    <string name="please_wait">Xin chờ trong giây lát...</string>
+    <string name="retry">Có lỗi xảy ra, xin vui lòng tải lại.</string>
+    <string name="error">Lỗi</string>
 </resources>
